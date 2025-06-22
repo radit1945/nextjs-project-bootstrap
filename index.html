@@ -1,361 +1,540 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Personal Portfolio - Software Developer</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Doe | Software Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent: #3b82f6;
+            --accent-hover: #2563eb;
+        }
 
-    /* Reset and base styles */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: #f9fafb;
-      color: #1f2937;
-      line-height: 1.6;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-    a {
-      color: #2563eb;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 50%;
-    }
-    header {
-      background-color: #1e40af;
-      color: white;
-      padding: 1rem 2rem;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 960px;
-      margin: 0 auto;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-    }
-    nav ul li {
-      font-weight: 600;
-    }
-    nav ul li a {
-      color: white;
-      font-weight: 600;
-      font-size: 1rem;
-    }
-    nav ul li a:hover {
-      color: #93c5fd;
-    }
-    main {
-      flex-grow: 1;
-      max-width: 960px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-      width: 100%;
-    }
-    section {
-      margin-bottom: 3rem;
-    }
-    h1, h2, h3 {
-      color: #1e40af;
-      margin-bottom: 0.75rem;
-    }
-    h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-    }
-    h2 {
-      font-size: 2rem;
-      border-bottom: 3px solid #2563eb;
-      padding-bottom: 0.25rem;
-    }
-    h3 {
-      font-size: 1.25rem;
-      font-weight: 600;
-    }
-    /* Homepage */
-    #home {
-      text-align: center;
-      padding-top: 2rem;
-    }
-    #home img {
-      width: 150px;
-      height: 150px;
-      margin-bottom: 1rem;
-      border: 4px solid #2563eb;
-    }
-    #home h1 {
-      margin-bottom: 0.25rem;
-    }
-    #home p {
-      font-size: 1.25rem;
-      font-weight: 500;
-      color: #374151;
-    }
-    /* About Me */
-    #about p {
-      max-width: 700px;
-      margin: 0 auto;
-      font-size: 1.1rem;
-      color: #4b5563;
-    }
-    /* Skills */
-    #skills {
-      max-width: 700px;
-      margin: 0 auto;
-    }
-    .skill {
-      margin-bottom: 1rem;
-    }
-    .skill-name {
-      font-weight: 600;
-      margin-bottom: 0.25rem;
-      color: #1e40af;
-    }
-    .progress-bar {
-      background-color: #e0e7ff;
-      border-radius: 9999px;
-      overflow: hidden;
-      height: 1rem;
-    }
-    .progress {
-      height: 100%;
-      background-color: #2563eb;
-      border-radius: 9999px;
-      transition: width 0.5s ease-in-out;
-    }
-    /* Portfolio */
-    #portfolio .project {
-      border: 1px solid #cbd5e1;
-      border-radius: 8px;
-      padding: 1rem;
-      margin-bottom: 1.5rem;
-      background-color: white;
-      box-shadow: 0 1px 3px rgb(0 0 0 / 0.1);
-    }
-    #portfolio .project h3 {
-      margin-bottom: 0.5rem;
-    }
-    #portfolio .project p {
-      margin-bottom: 0.5rem;
-      color: #4b5563;
-    }
-    #portfolio .tech-list {
-      font-style: italic;
-      color: #6b7280;
-      margin-bottom: 0.5rem;
-    }
-    #portfolio .github-link a {
-      color: #2563eb;
-      font-weight: 600;
-    }
-    #portfolio .github-link a:hover {
-      text-decoration: underline;
-    }
-    /* Contact */
-    #contact form {
-      max-width: 500px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-    #contact label {
-      font-weight: 600;
-      color: #1e40af;
-    }
-    #contact input,
-    #contact textarea {
-      padding: 0.5rem;
-      border: 1px solid #cbd5e1;
-      border-radius: 4px;
-      font-size: 1rem;
-      font-family: inherit;
-      resize: vertical;
-    }
-    #contact button {
-      background-color: #2563eb;
-      color: white;
-      border: none;
-      padding: 0.75rem;
-      font-size: 1.1rem;
-      font-weight: 700;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-    #contact button:hover {
-      background-color: #1e40af;
-    }
-    /* Social links */
-    .social-links {
-      text-align: center;
-      margin-top: 1rem;
-    }
-    .social-links a {
-      margin: 0 0.5rem;
-      color: #2563eb;
-      font-size: 1.5rem;
-      display: inline-block;
-      transition: color 0.3s ease;
-    }
-    .social-links a:hover {
-      color: #1e40af;
-    }
-    /* Footer */
-    footer {
-      background-color: #1e40af;
-      color: white;
-      text-align: center;
-      padding: 1rem 2rem;
-      font-size: 0.9rem;
-      margin-top: auto;
-    }
-    /* Responsive */
-    @media (max-width: 600px) {
-      nav ul {
-        flex-direction: column;
-        gap: 0.75rem;
-      }
-      #home h1 {
-        font-size: 2rem;
-      }
-      #home p {
-        font-size: 1rem;
-      }
-    }
-  </style>
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        #hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 60px;
+        }
+
+        .hero-content {
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 2rem;
+            border: 3px solid var(--accent);
+            padding: 3px;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, var(--accent), #60a5fa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-tagline {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        /* Sections */
+        section {
+            padding: 6rem 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: var(--text-primary);
+        }
+
+        /* About */
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .skill-card {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .skill-name {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-level {
+            height: 6px;
+            background: rgba(59, 130, 246, 0.2);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: var(--accent);
+            border-radius: 3px;
+            transition: width 1s ease;
+        }
+
+        /* Portfolio */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-img {
+            width: 100%;
+            height: 200px;
+            background: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .project-img i {
+            font-size: 4rem;
+            color: white;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .project-tech {
+            color: var(--accent);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-link {
+            color: var(--text-primary);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .project-link:hover {
+            color: var(--accent);
+        }
+
+        /* Contact */
+        .contact-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-form {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: 12px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            background: var(--bg-primary);
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            border-radius: 6px;
+            color: var(--text-primary);
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: var(--accent-hover);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            color: var(--text-secondary);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-secondary);
+            padding: 2rem 0;
+            text-align: center;
+            color: var(--text-secondary);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.25rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
     <nav>
-      <div class="logo" aria-label="Personal Portfolio">Portfolio</div>
-      <ul>
-        <li><a href="#home" aria-label="Home section">Home</a></li>
-        <li><a href="#about" aria-label="About Me section">About Me</a></li>
-        <li><a href="#skills" aria-label="Skills section">Skills</a></li>
-        <li><a href="#portfolio" aria-label="Portfolio section">Portfolio</a></li>
-        <li><a href="#contact" aria-label="Contact section">Contact</a></li>
-      </ul>
+        <div class="container nav-container">
+            <div class="logo">JD</div>
+            <ul class="nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
     </nav>
-  </header>
-  <main>
-    <section id="home" tabindex="0" aria-label="Homepage">
-      <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Profile Photo" />
-      <h1>John Doe</h1>
-      <p>Software Developer</p>
+
+    <section id="hero">
+        <div class="container hero-content">
+            <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="John Doe" class="profile-img">
+            <h1 class="hero-title">John Doe</h1>
+            <h2 class="hero-subtitle">Software Developer</h2>
+            <p class="hero-tagline">Building clean and secure digital solutions</p>
+            <a href="#" class="cta-button">Download CV</a>
+        </div>
     </section>
-    <section id="about" tabindex="0" aria-label="About Me">
-      <h2>About Me</h2>
-      <p>
-        I hold a degree in Informatics and have experience in programming, networking, and cybersecurity. Passionate about building secure and efficient software solutions.
-      </p>
+
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <p>With a degree in Informatics and a passion for coding, I specialize in developing secure and efficient software solutions. My journey in technology has equipped me with strong foundations in programming, networking, and cybersecurity. I'm constantly exploring new technologies and methodologies to create better digital experiences.</p>
+            </div>
+        </div>
     </section>
-    <section id="skills" tabindex="0" aria-label="Skills">
-      <h2>Skills</h2>
-      <div class="skill">
-        <div class="skill-name">C++</div>
-        <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
-          <div class="progress" style="width: 80%;"></div>
+
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <i class="fas fa-code skill-icon"></i>
+                    <h3 class="skill-name">C++</h3>
+                    <div class="skill-level">
+                        <div class="skill-progress" style="width: 85%"></div>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-python skill-icon"></i>
+                    <h3 class="skill-name">Python</h3>
+                    <div class="skill-level">
+                        <div class="skill-progress" style="width: 90%"></div>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-html5 skill-icon"></i>
+                    <h3 class="skill-name">HTML/CSS</h3>
+                    <div class="skill-level">
+                        <div class="skill-progress" style="width: 95%"></div>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-js skill-icon"></i>
+                    <h3 class="skill-name">JavaScript</h3>
+                    <div class="skill-level">
+                        <div class="skill-progress" style="width: 80%"></div>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-linux skill-icon"></i>
+                    <h3 class="skill-name">Linux</h3>
+                    <div class="skill-level">
+                        <div class="skill-progress" style="width: 75%"></div>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-shield-alt skill-icon"></i>
+                    <h3 class="skill-name">Cybersecurity</h3>
+                    <div class="skill-level">
+                        <div class="skill-progress" style="width: 70%"></div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="skill">
-        <div class="skill-name">Python</div>
-        <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
-          <div class="progress" style="width: 90%;"></div>
-        </div>
-      </div>
-      <div class="skill">
-        <div class="skill-name">HTML/CSS</div>
-        <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">
-          <div class="progress" style="width: 95%;"></div>
-        </div>
-      </div>
-      <div class="skill">
-        <div class="skill-name">JavaScript</div>
-        <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
-          <div class="progress" style="width: 85%;"></div>
-        </div>
-      </div>
-      <div class="skill">
-        <div class="skill-name">Linux</div>
-        <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-          <div class="progress" style="width: 75%;"></div>
-        </div>
-      </div>
-      <div class="skill">
-        <div class="skill-name">Cybersecurity</div>
-        <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
-          <div class="progress" style="width: 70%;"></div>
-        </div>
-      </div>
     </section>
-    <section id="portfolio" tabindex="0" aria-label="Portfolio">
-      <h2>Portfolio</h2>
-      <div class="project">
-        <h3>Project One</h3>
-        <p>A web application for task management with real-time collaboration features.</p>
-        <div class="tech-list">Technologies: React, Node.js, Socket.io</div>
-        <div class="github-link"><a href="https://github.com/johndoe/project-one" target="_blank" rel="noopener noreferrer">GitHub Repository</a></div>
-      </div>
-      <div class="project">
-        <h3>Project Two</h3>
-        <p>A network monitoring tool that provides alerts and analytics for system administrators.</p>
-        <div class="tech-list">Technologies: Python, Flask, SNMP</div>
-        <div class="github-link"><a href="https://github.com/johndoe/project-two" target="_blank" rel="noopener noreferrer">GitHub Repository</a></div>
-      </div>
-      <div class="project">
-        <h3>Project Three</h3>
-        <p>A cybersecurity awareness platform with interactive training modules and quizzes.</p>
-        <div class="tech-list">Technologies: HTML, CSS, JavaScript</div>
-        <div class="github-link"><a href="https://github.com/johndoe/project-three" target="_blank" rel="noopener noreferrer">GitHub Repository</a></div>
-      </div>
+
+    <section id="portfolio">
+        <div class="container">
+            <h2 class="section-title">Portfolio</h2>
+            <div class="portfolio-grid">
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Task Management System</h3>
+                        <p class="project-description">A collaborative task management platform with real-time updates and team features.</p>
+                        <p class="project-tech">React • Node.js • MongoDB</p>
+                        <a href="#" class="project-link">
+                            View on GitHub <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Network Monitor</h3>
+                        <p class="project-description">Advanced network monitoring tool with real-time analytics and alerts.</p>
+                        <p class="project-tech">Python • Flask • WebSocket</p>
+                        <a href="#" class="project-link">
+                            View on GitHub <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Security Training Platform</h3>
+                        <p class="project-description">Interactive cybersecurity training platform with hands-on exercises.</p>
+                        <p class="project-tech">JavaScript • Node.js • Docker</p>
+                        <a href="#" class="project-link">
+                            View on GitHub <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
-    <section id="contact" tabindex="0" aria-label="Contact">
-      <h2>Contact</h2>
-      <form action="mailto:johndoe@example.com" method="POST" enctype="text/plain" aria-label="Contact form">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" required aria-required="true" />
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required aria-required="true" />
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="5" required aria-required="true"></textarea>
-        <button type="submit">Send</button>
-      </form>
-      <div class="social-links" aria-label="Social media links">
-        <a href="https://linkedin.com/in/johndoe" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-        <a href="https://github.com/johndoe" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
-        <a href="mailto:johndoe@example.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-      </div>
+
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Me</h2>
+            <div class="contact-container">
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+                <div class="social-links">
+                    <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="mailto:john@example.com"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
     </section>
-  </main>
-  <footer>
-    &copy; 2024 John Doe. All rights reserved.
-  </footer>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 John Doe. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
