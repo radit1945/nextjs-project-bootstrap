@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Personal Portfolio - Software Developer</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+    /* Reset and base styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f9fafb;
+      color: #1f2937;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    a {
+      color: #2563eb;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 50%;
+    }
+    header {
+      background-color: #1e40af;
+      color: white;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+    nav ul li {
+      font-weight: 600;
+    }
+    nav ul li a {
+      color: white;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    nav ul li a:hover {
+      color: #93c5fd;
+    }
+    main {
+      flex-grow: 1;
+      max-width: 960px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      width: 100%;
+    }
+    section {
+      margin-bottom: 3rem;
+    }
+    h1, h2, h3 {
+      color: #1e40af;
+      margin-bottom: 0.75rem;
+    }
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+    }
+    h2 {
+      font-size: 2rem;
+      border-bottom: 3px solid #2563eb;
+      padding-bottom: 0.25rem;
+    }
+    h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+    /* Homepage */
+    #home {
+      text-align: center;
+      padding-top: 2rem;
+    }
+    #home img {
+      width: 150px;
+      height: 150px;
+      margin-bottom: 1rem;
+      border: 4px solid #2563eb;
+    }
+    #home h1 {
+      margin-bottom: 0.25rem;
+    }
+    #home p {
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: #374151;
+    }
+    /* About Me */
+    #about p {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      color: #4b5563;
+    }
+    /* Skills */
+    #skills {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .skill {
+      margin-bottom: 1rem;
+    }
+    .skill-name {
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+      color: #1e40af;
+    }
+    .progress-bar {
+      background-color: #e0e7ff;
+      border-radius: 9999px;
+      overflow: hidden;
+      height: 1rem;
+    }
+    .progress {
+      height: 100%;
+      background-color: #2563eb;
+      border-radius: 9999px;
+      transition: width 0.5s ease-in-out;
+    }
+    /* Portfolio */
+    #portfolio .project {
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      background-color: white;
+      box-shadow: 0 1px 3px rgb(0 0 0 / 0.1);
+    }
+    #portfolio .project h3 {
+      margin-bottom: 0.5rem;
+    }
+    #portfolio .project p {
+      margin-bottom: 0.5rem;
+      color: #4b5563;
+    }
+    #portfolio .tech-list {
+      font-style: italic;
+      color: #6b7280;
+      margin-bottom: 0.5rem;
+    }
+    #portfolio .github-link a {
+      color: #2563eb;
+      font-weight: 600;
+    }
+    #portfolio .github-link a:hover {
+      text-decoration: underline;
+    }
+    /* Contact */
+    #contact form {
+      max-width: 500px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    #contact label {
+      font-weight: 600;
+      color: #1e40af;
+    }
+    #contact input,
+    #contact textarea {
+      padding: 0.5rem;
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
+      font-size: 1rem;
+      font-family: inherit;
+      resize: vertical;
+    }
+    #contact button {
+      background-color: #2563eb;
+      color: white;
+      border: none;
+      padding: 0.75rem;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    #contact button:hover {
+      background-color: #1e40af;
+    }
+    /* Social links */
+    .social-links {
+      text-align: center;
+      margin-top: 1rem;
+    }
+    .social-links a {
+      margin: 0 0.5rem;
+      color: #2563eb;
+      font-size: 1.5rem;
+      display: inline-block;
+      transition: color 0.3s ease;
+    }
+    .social-links a:hover {
+      color: #1e40af;
+    }
+    /* Footer */
+    footer {
+      background-color: #1e40af;
+      color: white;
+      text-align: center;
+      padding: 1rem 2rem;
+      font-size: 0.9rem;
+      margin-top: auto;
+    }
+    /* Responsive */
+    @media (max-width: 600px) {
+      nav ul {
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+      #home h1 {
+        font-size: 2rem;
+      }
+      #home p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo" aria-label="Personal Portfolio">Portfolio</div>
+      <ul>
+        <li><a href="#home" aria-label="Home section">Home</a></li>
+        <li><a href="#about" aria-label="About Me section">About Me</a></li>
+        <li><a href="#skills" aria-label="Skills section">Skills</a></li>
+        <li><a href="#portfolio" aria-label="Portfolio section">Portfolio</a></li>
+        <li><a href="#contact" aria-label="Contact section">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section id="home" tabindex="0" aria-label="Homepage">
+      <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Profile Photo" />
+      <h1>John Doe</h1>
+      <p>Software Developer</p>
+    </section>
+    <section id="about" tabindex="0" aria-label="About Me">
+      <h2>About Me</h2>
+      <p>
+        I hold a degree in Informatics and have experience in programming, networking, and cybersecurity. Passionate about building secure and efficient software solutions.
+      </p>
+    </section>
+    <section id="skills" tabindex="0" aria-label="Skills">
+      <h2>Skills</h2>
+      <div class="skill">
+        <div class="skill-name">C++</div>
+        <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+          <div class="progress" style="width: 80%;"></div>
+        </div>
+      </div>
+      <div class="skill">
+        <div class="skill-name">Python</div>
+        <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+          <div class="progress" style="width: 90%;"></div>
+        </div>
+      </div>
+      <div class="skill">
+        <div class="skill-name">HTML/CSS</div>
+        <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">
+          <div class="progress" style="width: 95%;"></div>
+        </div>
+      </div>
+      <div class="skill">
+        <div class="skill-name">JavaScript</div>
+        <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
+          <div class="progress" style="width: 85%;"></div>
+        </div>
+      </div>
+      <div class="skill">
+        <div class="skill-name">Linux</div>
+        <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+          <div class="progress" style="width: 75%;"></div>
+        </div>
+      </div>
+      <div class="skill">
+        <div class="skill-name">Cybersecurity</div>
+        <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
+          <div class="progress" style="width: 70%;"></div>
+        </div>
+      </div>
+    </section>
+    <section id="portfolio" tabindex="0" aria-label="Portfolio">
+      <h2>Portfolio</h2>
+      <div class="project">
+        <h3>Project One</h3>
+        <p>A web application for task management with real-time collaboration features.</p>
+        <div class="tech-list">Technologies: React, Node.js, Socket.io</div>
+        <div class="github-link"><a href="https://github.com/johndoe/project-one" target="_blank" rel="noopener noreferrer">GitHub Repository</a></div>
+      </div>
+      <div class="project">
+        <h3>Project Two</h3>
+        <p>A network monitoring tool that provides alerts and analytics for system administrators.</p>
+        <div class="tech-list">Technologies: Python, Flask, SNMP</div>
+        <div class="github-link"><a href="https://github.com/johndoe/project-two" target="_blank" rel="noopener noreferrer">GitHub Repository</a></div>
+      </div>
+      <div class="project">
+        <h3>Project Three</h3>
+        <p>A cybersecurity awareness platform with interactive training modules and quizzes.</p>
+        <div class="tech-list">Technologies: HTML, CSS, JavaScript</div>
+        <div class="github-link"><a href="https://github.com/johndoe/project-three" target="_blank" rel="noopener noreferrer">GitHub Repository</a></div>
+      </div>
+    </section>
+    <section id="contact" tabindex="0" aria-label="Contact">
+      <h2>Contact</h2>
+      <form action="mailto:johndoe@example.com" method="POST" enctype="text/plain" aria-label="Contact form">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required aria-required="true" />
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required aria-required="true" />
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" required aria-required="true"></textarea>
+        <button type="submit">Send</button>
+      </form>
+      <div class="social-links" aria-label="Social media links">
+        <a href="https://linkedin.com/in/johndoe" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/johndoe" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="mailto:johndoe@example.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      </div>
+    </section>
+  </main>
+  <footer>
+    &copy; 2024 John Doe. All rights reserved.
+  </footer>
+</body>
+</html>
